@@ -1,0 +1,10 @@
+E:\PJ\1\Winform\AppQuanLyQuanCafe\bin\Debug\AppQuanLyQuanCafe.exe.config
+E:\PJ\1\Winform\AppQuanLyQuanCafe\bin\Debug\AppQuanLyQuanCafe.exe
+E:\PJ\1\Winform\AppQuanLyQuanCafe\bin\Debug\AppQuanLyQuanCafe.pdb
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.csproj.AssemblyReference.cache
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.frmLogin.resources
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.Properties.Resources.resources
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.csproj.GenerateResource.cache
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.csproj.CoreCompileInputs.cache
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.exe
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.pdb
