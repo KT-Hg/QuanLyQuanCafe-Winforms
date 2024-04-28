@@ -19,7 +19,9 @@ namespace AppQuanLyQuanCafe
 
         private void tsmAccountProfile_Click(object sender, EventArgs e)
         {
-
+            frmAccountProfile frmAccountProfile = new frmAccountProfile();
+            frmAccountProfile.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -63,7 +63,6 @@ namespace AppQuanLyQuanCafe
             if (countSinhVien > 0 || countNhanVien > 0)*/
             if (true)
             {
-                MessageBox.Show("Đăng Nhập Thành Công");
                 frmTableManager frmTableManager = new frmTableManager();
                 this.Hide();
                 frmTableManager.ShowDialog();

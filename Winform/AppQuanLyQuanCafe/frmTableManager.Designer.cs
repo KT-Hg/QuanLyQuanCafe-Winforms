@@ -42,10 +42,10 @@
             this.pnlBill = new System.Windows.Forms.Panel();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.pnlPayment = new System.Windows.Forms.Panel();
-            this.btnSwitchTable = new System.Windows.Forms.Button();
             this.cbbSwitchTable = new System.Windows.Forms.ComboBox();
-            this.btnDiscount = new System.Windows.Forms.Button();
+            this.btnSwitchTable = new System.Windows.Forms.Button();
             this.nudDiscount = new System.Windows.Forms.NumericUpDown();
+            this.btnDiscount = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.pnlAddFood.SuspendLayout();
@@ -100,7 +100,7 @@
             this.flpTable.Location = new System.Drawing.Point(20, 30);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(420, 440);
-            this.flpTable.TabIndex = 4;
+            this.flpTable.TabIndex = 1;
             // 
             // pnlAddFood
             // 
@@ -119,7 +119,7 @@
             this.cbbCategory.Location = new System.Drawing.Point(5, 5);
             this.cbbCategory.Name = "cbbCategory";
             this.cbbCategory.Size = new System.Drawing.Size(185, 21);
-            this.cbbCategory.TabIndex = 0;
+            this.cbbCategory.TabIndex = 3;
             // 
             // cbbFood
             // 
@@ -127,31 +127,21 @@
             this.cbbFood.Location = new System.Drawing.Point(5, 35);
             this.cbbFood.Name = "cbbFood";
             this.cbbFood.Size = new System.Drawing.Size(185, 21);
-            this.cbbFood.TabIndex = 1;
+            this.cbbFood.TabIndex = 4;
             // 
             // nudAmount
             // 
             this.nudAmount.Location = new System.Drawing.Point(275, 20);
-            this.nudAmount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nudAmount.Name = "nudAmount";
             this.nudAmount.Size = new System.Drawing.Size(50, 20);
-            this.nudAmount.TabIndex = 3;
-            this.nudAmount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.nudAmount.TabIndex = 5;
             // 
             // btnAddFood
             // 
             this.btnAddFood.Location = new System.Drawing.Point(195, 5);
             this.btnAddFood.Name = "btnAddFood";
             this.btnAddFood.Size = new System.Drawing.Size(75, 50);
-            this.btnAddFood.TabIndex = 2;
+            this.btnAddFood.TabIndex = 6;
             this.btnAddFood.Text = "Thêm món";
             this.btnAddFood.UseVisualStyleBackColor = true;
             // 
@@ -161,7 +151,7 @@
             this.pnlBill.Location = new System.Drawing.Point(450, 100);
             this.pnlBill.Name = "pnlBill";
             this.pnlBill.Size = new System.Drawing.Size(330, 300);
-            this.pnlBill.TabIndex = 3;
+            this.pnlBill.TabIndex = 7;
             // 
             // lsvBill
             // 
@@ -169,7 +159,7 @@
             this.lsvBill.Location = new System.Drawing.Point(5, 5);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.Size = new System.Drawing.Size(320, 290);
-            this.lsvBill.TabIndex = 0;
+            this.lsvBill.TabIndex = 8;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             // 
             // pnlPayment
@@ -182,47 +172,47 @@
             this.pnlPayment.Location = new System.Drawing.Point(450, 410);
             this.pnlPayment.Name = "pnlPayment";
             this.pnlPayment.Size = new System.Drawing.Size(330, 60);
-            this.pnlPayment.TabIndex = 3;
-            // 
-            // btnSwitchTable
-            // 
-            this.btnSwitchTable.Location = new System.Drawing.Point(5, 5);
-            this.btnSwitchTable.Name = "btnSwitchTable";
-            this.btnSwitchTable.Size = new System.Drawing.Size(75, 25);
-            this.btnSwitchTable.TabIndex = 7;
-            this.btnSwitchTable.Text = "Chuyển bàn";
-            this.btnSwitchTable.UseVisualStyleBackColor = true;
+            this.pnlPayment.TabIndex = 9;
             // 
             // cbbSwitchTable
             // 
             this.cbbSwitchTable.FormattingEnabled = true;
-            this.cbbSwitchTable.Location = new System.Drawing.Point(5, 35);
+            this.cbbSwitchTable.Location = new System.Drawing.Point(5, 5);
             this.cbbSwitchTable.Name = "cbbSwitchTable";
             this.cbbSwitchTable.Size = new System.Drawing.Size(75, 21);
-            this.cbbSwitchTable.TabIndex = 4;
+            this.cbbSwitchTable.TabIndex = 10;
             // 
-            // btnDiscount
+            // btnSwitchTable
             // 
-            this.btnDiscount.Location = new System.Drawing.Point(100, 5);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(75, 25);
-            this.btnDiscount.TabIndex = 4;
-            this.btnDiscount.Text = "Giảm giá";
-            this.btnDiscount.UseVisualStyleBackColor = true;
+            this.btnSwitchTable.Location = new System.Drawing.Point(5, 30);
+            this.btnSwitchTable.Name = "btnSwitchTable";
+            this.btnSwitchTable.Size = new System.Drawing.Size(75, 25);
+            this.btnSwitchTable.TabIndex = 11;
+            this.btnSwitchTable.Text = "Chuyển bàn";
+            this.btnSwitchTable.UseVisualStyleBackColor = true;
             // 
             // nudDiscount
             // 
-            this.nudDiscount.Location = new System.Drawing.Point(100, 35);
+            this.nudDiscount.Location = new System.Drawing.Point(100, 5);
             this.nudDiscount.Name = "nudDiscount";
             this.nudDiscount.Size = new System.Drawing.Size(75, 20);
-            this.nudDiscount.TabIndex = 4;
+            this.nudDiscount.TabIndex = 12;
+            // 
+            // btnDiscount
+            // 
+            this.btnDiscount.Location = new System.Drawing.Point(100, 30);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Size = new System.Drawing.Size(75, 25);
+            this.btnDiscount.TabIndex = 13;
+            this.btnDiscount.Text = "Giảm giá";
+            this.btnDiscount.UseVisualStyleBackColor = true;
             // 
             // btnPayment
             // 
             this.btnPayment.Location = new System.Drawing.Point(195, 5);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(130, 50);
-            this.btnPayment.TabIndex = 5;
+            this.btnPayment.TabIndex = 14;
             this.btnPayment.Text = "Thanh toán";
             this.btnPayment.UseVisualStyleBackColor = true;
             // 
@@ -267,10 +257,10 @@
         private System.Windows.Forms.Panel pnlBill;
         private System.Windows.Forms.ListView lsvBill;
         private System.Windows.Forms.Panel pnlPayment;
-        private System.Windows.Forms.Button btnSwitchTable;
         private System.Windows.Forms.ComboBox cbbSwitchTable;
-        private System.Windows.Forms.Button btnDiscount;
+        private System.Windows.Forms.Button btnSwitchTable;
         private System.Windows.Forms.NumericUpDown nudDiscount;
+        private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnPayment;
     }
 }
