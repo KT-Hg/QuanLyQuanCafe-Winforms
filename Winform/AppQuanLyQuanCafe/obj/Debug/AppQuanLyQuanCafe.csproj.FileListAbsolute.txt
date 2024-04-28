@@ -8,3 +8,4 @@ E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.csproj.GenerateRes
 E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.csproj.CoreCompileInputs.cache
 E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.exe
 E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.pdb
+E:\PJ\1\Winform\AppQuanLyQuanCafe\obj\Debug\AppQuanLyQuanCafe.frmTableManager.resources

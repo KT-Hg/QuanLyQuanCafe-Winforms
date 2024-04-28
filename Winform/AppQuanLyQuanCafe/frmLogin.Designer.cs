@@ -72,6 +72,7 @@
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogin
             // 
@@ -81,6 +82,7 @@
             this.btnLogin.TabIndex = 12;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // pnlPassWord
             // 
@@ -142,6 +144,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.pnlFullScreen.ResumeLayout(false);
             this.pnlPassWord.ResumeLayout(false);
             this.pnlPassWord.PerformLayout();

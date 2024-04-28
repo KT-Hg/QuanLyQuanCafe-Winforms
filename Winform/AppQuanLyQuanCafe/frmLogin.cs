@@ -24,20 +24,11 @@ namespace AppQuanLyQuanCafe
 
         private string CalculateSHA1(string input)
         {
-
-            // Convert the password string to byte array
             byte[] inputBytes = Encoding.Unicode.GetBytes(input);
-
-            // Create a new instance of SHA1 algorithm
             using (SHA1 sha1 = SHA1.Create())
             {
-                // Compute the hash value of the password bytes
                 byte[] hashBytes = sha1.ComputeHash(inputBytes);
-
-                // Convert the byte array to a hexadecimal string
                 string hashedInput = BitConverter.ToString(hashBytes).Replace("-", "").ToUpper();
-
-                // Print the hashed password
                 return hashedInput;
             }
         }
@@ -53,25 +44,30 @@ namespace AppQuanLyQuanCafe
                 sqlConnection.Open();
             }
 
-            string username = txbUserName.Text.Trim(); // Thay thế bằng tên đăng nhập được cung cấp
-            string password = txbPassWord.Text.Trim(); // Thay thế bằng mật khẩu được cung cấp
+            string username = txbUserName.Text.Trim();
+            string password = txbPassWord.Text.Trim();
 
-            SqlCommand sqlCommand = new SqlCommand();
+            /*SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandType = CommandType.Text;
             string querySinhVien = "SELECT COUNT(*) FROM SINHVIEN WHERE TENDN = @Username AND MATKHAU = 0x" + CalculateSHA1(password);
             SqlCommand commandSinhVien = new SqlCommand(querySinhVien, sqlConnection);
             commandSinhVien.Parameters.AddWithValue("@Username", username);
             int countSinhVien = (int)commandSinhVien.ExecuteScalar();
 
-            // Kiểm tra xem có tồn tại trong bảng NHANVIEN không
+
             string queryNhanVien = "SELECT COUNT(*) FROM NHANVIEN WHERE TENDN = @Username AND MATKHAU = 0x" + CalculateSHA1(password);
             SqlCommand commandNhanVien = new SqlCommand(queryNhanVien, sqlConnection);
             commandNhanVien.Parameters.AddWithValue("@Username", username);
             int countNhanVien = (int)commandNhanVien.ExecuteScalar();
 
-            if (countSinhVien > 0 || countNhanVien > 0)
+            if (countSinhVien > 0 || countNhanVien > 0)*/
+            if (true)
             {
                 MessageBox.Show("Đăng Nhập Thành Công");
+                frmTableManager frmTableManager = new frmTableManager();
+                this.Hide();
+                frmTableManager.ShowDialog();
+                this.Show();
             }
             else
             {
@@ -83,5 +79,13 @@ namespace AppQuanLyQuanCafe
         {
             Application.Exit();
         }
-    }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn thoát chương trình.", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+    }   
 }
