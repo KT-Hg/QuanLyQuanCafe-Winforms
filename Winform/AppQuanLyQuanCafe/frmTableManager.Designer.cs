@@ -42,10 +42,10 @@
             this.pnlBill = new System.Windows.Forms.Panel();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.pnlPayment = new System.Windows.Forms.Panel();
-            this.cbbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
-            this.nudDiscount = new System.Windows.Forms.NumericUpDown();
+            this.cbbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnDiscount = new System.Windows.Forms.Button();
+            this.nudDiscount = new System.Windows.Forms.NumericUpDown();
             this.btnPayment = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.pnlAddFood.SuspendLayout();
@@ -72,6 +72,7 @@
             this.tsmAdmin.Name = "tsmAdmin";
             this.tsmAdmin.Size = new System.Drawing.Size(55, 26);
             this.tsmAdmin.Text = "Admin";
+            this.tsmAdmin.Click += new System.EventHandler(this.tsmAdmin_Click);
             // 
             // tsmAccountInfomation
             // 
@@ -85,7 +86,7 @@
             // tsmAccountProfile
             // 
             this.tsmAccountProfile.Name = "tsmAccountProfile";
-            this.tsmAccountProfile.Size = new System.Drawing.Size(180, 22);
+            this.tsmAccountProfile.Size = new System.Drawing.Size(170, 22);
             this.tsmAccountProfile.Text = "Thông tin cá nhân";
             this.tsmAccountProfile.Click += new System.EventHandler(this.tsmAccountProfile_Click);
             // 
@@ -94,6 +95,7 @@
             this.tsmLogout.Name = "tsmLogout";
             this.tsmLogout.Size = new System.Drawing.Size(180, 22);
             this.tsmLogout.Text = "Đăng xuất";
+            this.tsmLogout.Click += new System.EventHandler(this.tsmLogout_Click);
             // 
             // flpTable
             // 
@@ -174,14 +176,6 @@
             this.pnlPayment.Size = new System.Drawing.Size(330, 60);
             this.pnlPayment.TabIndex = 9;
             // 
-            // cbbSwitchTable
-            // 
-            this.cbbSwitchTable.FormattingEnabled = true;
-            this.cbbSwitchTable.Location = new System.Drawing.Point(5, 5);
-            this.cbbSwitchTable.Name = "cbbSwitchTable";
-            this.cbbSwitchTable.Size = new System.Drawing.Size(75, 21);
-            this.cbbSwitchTable.TabIndex = 10;
-            // 
             // btnSwitchTable
             // 
             this.btnSwitchTable.Location = new System.Drawing.Point(5, 30);
@@ -191,12 +185,13 @@
             this.btnSwitchTable.Text = "Chuyển bàn";
             this.btnSwitchTable.UseVisualStyleBackColor = true;
             // 
-            // nudDiscount
+            // cbbSwitchTable
             // 
-            this.nudDiscount.Location = new System.Drawing.Point(100, 5);
-            this.nudDiscount.Name = "nudDiscount";
-            this.nudDiscount.Size = new System.Drawing.Size(75, 20);
-            this.nudDiscount.TabIndex = 12;
+            this.cbbSwitchTable.FormattingEnabled = true;
+            this.cbbSwitchTable.Location = new System.Drawing.Point(5, 5);
+            this.cbbSwitchTable.Name = "cbbSwitchTable";
+            this.cbbSwitchTable.Size = new System.Drawing.Size(75, 21);
+            this.cbbSwitchTable.TabIndex = 10;
             // 
             // btnDiscount
             // 
@@ -206,6 +201,13 @@
             this.btnDiscount.TabIndex = 13;
             this.btnDiscount.Text = "Giảm giá";
             this.btnDiscount.UseVisualStyleBackColor = true;
+            // 
+            // nudDiscount
+            // 
+            this.nudDiscount.Location = new System.Drawing.Point(100, 5);
+            this.nudDiscount.Name = "nudDiscount";
+            this.nudDiscount.Size = new System.Drawing.Size(75, 20);
+            this.nudDiscount.TabIndex = 12;
             // 
             // btnPayment
             // 
@@ -230,6 +232,7 @@
             this.Name = "frmTableManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý quán cafe";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTableManager_FormClosed);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.pnlAddFood.ResumeLayout(false);

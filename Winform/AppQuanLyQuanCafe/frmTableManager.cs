@@ -17,11 +17,31 @@ namespace AppQuanLyQuanCafe
             InitializeComponent();
         }
 
+        private void frmTableManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tsmAdmin_Click(object sender, EventArgs e)
+        {
+            frmAdmin frmAdmin = new frmAdmin();
+            this.Hide();
+            frmAdmin.ShowDialog();
+            this.Show();
+        }
+
         private void tsmAccountProfile_Click(object sender, EventArgs e)
         {
             frmAccountProfile frmAccountProfile = new frmAccountProfile();
             frmAccountProfile.ShowDialog();
             this.Show();
         }
+
+        private void tsmLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
+
+
