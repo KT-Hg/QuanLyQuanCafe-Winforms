@@ -29,18 +29,32 @@ namespace AppQuanLyQuanCafe
 
         void loadTable()
         {
-            List<TableDTO> tableDTOs = TableDAO.Instance.loadTableList();
+            List<TableDTO> tableDTOs = TableDAO.Instance.LoadTableList();
             foreach (TableDTO tableDTO in tableDTOs) 
             {
                 Button button = new Button() { Width = TableDAO.tableWidth, Height = TableDAO.tableHeigth };
                 button.Text = tableDTO.Name + Environment.NewLine + tableDTO.Status;
+                button.Click += btn_Click;
+                button.Tag = tableDTO;
                 flpTable.Controls.Add(button);
             }
         }
 
+        void showBill(int id)
+        {
+
+        }
+        
+
         #endregion
 
         #region Event
+        private void btn_Click(object sender, EventArgs e)
+        {
+            int tableId=(sender as TableDTO).Id;
+            showBill(tableId);
+
+        }
         private void tsmAdmin_Click(object sender, EventArgs e)
         {
             frmAdmin frmAdmin = new frmAdmin();

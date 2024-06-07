@@ -23,7 +23,7 @@ namespace AppQuanLyQuanCafe.DAO
         public static int tableWidth = 90;
         public static int tableHeigth = 90;
 
-        public List<TableDTO> loadTableList()
+        public List<TableDTO> LoadTableList()
         {
             List<TableDTO> tableDTOs = new List<TableDTO>();
 

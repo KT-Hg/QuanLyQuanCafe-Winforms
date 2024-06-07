@@ -181,12 +181,14 @@
             // 
             // lsvBill
             // 
+            this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(5, 5);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.Size = new System.Drawing.Size(320, 265);
             this.lsvBill.TabIndex = 8;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
+            this.lsvBill.View = System.Windows.Forms.View.List;
             // 
             // pnlPayment
             // 

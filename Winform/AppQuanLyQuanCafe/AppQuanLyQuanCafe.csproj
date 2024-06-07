@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\TableDAO.cs" />
+    <Compile Include="DTO\BillDTO.cs" />
     <Compile Include="DTO\TableDTO.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="frmAccountProfile.cs">
