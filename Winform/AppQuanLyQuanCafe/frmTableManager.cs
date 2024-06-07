@@ -42,7 +42,14 @@ namespace AppQuanLyQuanCafe
 
         void showBill(int id)
         {
-
+            lsvBill.Items.Clear();
+            List<BillInfoDTO> billInfoDTOs = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIdByTableId(id));
+            foreach (BillInfoDTO billInfoDTO in billInfoDTOs)
+            {
+                ListViewItem listViewItem = new ListViewItem(billInfoDTO.IdFood.ToString());
+                listViewItem.SubItems.Add(billInfoDTO.Count.ToString());
+                lsvBill.Items.Add(listViewItem);
+            }
         }
         
 
@@ -51,7 +58,7 @@ namespace AppQuanLyQuanCafe
         #region Event
         private void btn_Click(object sender, EventArgs e)
         {
-            int tableId=(sender as TableDTO).Id;
+            int tableId=((sender as Button).Tag as TableDTO).Id;
             showBill(tableId);
 
         }

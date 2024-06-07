@@ -20,7 +20,7 @@ namespace AppQuanLyQuanCafe.DAO
 
         private BillDAO() { }
 
-        public int GetUncheckBillIdByTableId(string tableId)
+        public int GetUncheckBillIdByTableId(int tableId)
         {
             string query = "SELECT * FROM Bill WHERE idTable = " + tableId + " AND status = 1";
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);

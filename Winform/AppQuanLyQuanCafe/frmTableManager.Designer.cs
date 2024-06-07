@@ -49,6 +49,8 @@
             this.btnDiscount = new System.Windows.Forms.Button();
             this.nudDiscount = new System.Windows.Forms.NumericUpDown();
             this.btnPayment = new System.Windows.Forms.Button();
+            this.idFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip.SuspendLayout();
             this.pnlAddFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
@@ -181,6 +183,9 @@
             // 
             // lsvBill
             // 
+            this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idFood,
+            this.count});
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(5, 5);
@@ -188,7 +193,7 @@
             this.lsvBill.Size = new System.Drawing.Size(320, 265);
             this.lsvBill.TabIndex = 8;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
-            this.lsvBill.View = System.Windows.Forms.View.List;
+            this.lsvBill.View = System.Windows.Forms.View.Details;
             // 
             // pnlPayment
             // 
@@ -244,6 +249,14 @@
             this.btnPayment.Text = "Thanh toán";
             this.btnPayment.UseVisualStyleBackColor = true;
             // 
+            // idFood
+            // 
+            this.idFood.Text = "ID Food";
+            // 
+            // count
+            // 
+            this.count.Text = "Count";
+            // 
             // frmTableManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,5 +307,7 @@
         private System.Windows.Forms.NumericUpDown nudDiscount;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnPayment;
+        private System.Windows.Forms.ColumnHeader idFood;
+        private System.Windows.Forms.ColumnHeader count;
     }
 }
