@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppQuanLyQuanCafe.DAO;
+using AppQuanLyQuanCafe.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,7 @@ namespace AppQuanLyQuanCafe
         public frmTableManager()
         {
             InitializeComponent();
+            loadTable();
         }
 
         private void frmTableManager_FormClosed(object sender, FormClosedEventArgs e)
@@ -22,6 +25,22 @@ namespace AppQuanLyQuanCafe
             this.Close();
         }
 
+        #region Method
+
+        void loadTable()
+        {
+            List<TableDTO> tableDTOs = TableDAO.Instance.loadTableList();
+            foreach (TableDTO tableDTO in tableDTOs) 
+            {
+                Button button = new Button() { Width = TableDAO.tableWidth, Height = TableDAO.tableHeigth };
+                button.Text = tableDTO.Name + Environment.NewLine + tableDTO.Status;
+                flpTable.Controls.Add(button);
+            }
+        }
+
+        #endregion
+
+        #region Event
         private void tsmAdmin_Click(object sender, EventArgs e)
         {
             frmAdmin frmAdmin = new frmAdmin();
@@ -41,6 +60,7 @@ namespace AppQuanLyQuanCafe
         {
             this.Close();
         }
+        #endregion
     }
 }
 

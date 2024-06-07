@@ -40,6 +40,8 @@
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.pnlBill = new System.Windows.Forms.Panel();
+            this.txbAmount = new System.Windows.Forms.TextBox();
+            this.lblAmount = new System.Windows.Forms.Label();
             this.lsvBill = new System.Windows.Forms.ListView();
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.btnSwitchTable = new System.Windows.Forms.Button();
@@ -93,12 +95,15 @@
             // tsmLogout
             // 
             this.tsmLogout.Name = "tsmLogout";
-            this.tsmLogout.Size = new System.Drawing.Size(180, 22);
+            this.tsmLogout.Size = new System.Drawing.Size(170, 22);
             this.tsmLogout.Text = "Đăng xuất";
             this.tsmLogout.Click += new System.EventHandler(this.tsmLogout_Click);
             // 
             // flpTable
             // 
+            this.flpTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpTable.AutoScroll = true;
             this.flpTable.Location = new System.Drawing.Point(20, 30);
             this.flpTable.Name = "flpTable";
             this.flpTable.Size = new System.Drawing.Size(420, 440);
@@ -149,18 +154,37 @@
             // 
             // pnlBill
             // 
+            this.pnlBill.Controls.Add(this.txbAmount);
+            this.pnlBill.Controls.Add(this.lblAmount);
             this.pnlBill.Controls.Add(this.lsvBill);
             this.pnlBill.Location = new System.Drawing.Point(450, 100);
             this.pnlBill.Name = "pnlBill";
             this.pnlBill.Size = new System.Drawing.Size(330, 300);
             this.pnlBill.TabIndex = 7;
             // 
+            // txbAmount
+            // 
+            this.txbAmount.Location = new System.Drawing.Point(110, 275);
+            this.txbAmount.Name = "txbAmount";
+            this.txbAmount.ReadOnly = true;
+            this.txbAmount.Size = new System.Drawing.Size(215, 20);
+            this.txbAmount.TabIndex = 10;
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.Location = new System.Drawing.Point(5, 275);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(100, 20);
+            this.lblAmount.TabIndex = 9;
+            this.lblAmount.Text = "Thành tiền:";
+            this.lblAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lsvBill
             // 
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(5, 5);
             this.lsvBill.Name = "lsvBill";
-            this.lsvBill.Size = new System.Drawing.Size(320, 290);
+            this.lsvBill.Size = new System.Drawing.Size(320, 265);
             this.lsvBill.TabIndex = 8;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             // 
@@ -238,6 +262,7 @@
             this.pnlAddFood.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
             this.pnlBill.ResumeLayout(false);
+            this.pnlBill.PerformLayout();
             this.pnlPayment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscount)).EndInit();
             this.ResumeLayout(false);
@@ -259,6 +284,8 @@
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.Panel pnlBill;
         private System.Windows.Forms.ListView lsvBill;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.TextBox txbAmount;
         private System.Windows.Forms.Panel pnlPayment;
         private System.Windows.Forms.ComboBox cbbSwitchTable;
         private System.Windows.Forms.Button btnSwitchTable;

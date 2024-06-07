@@ -1,0 +1,9 @@
+USE QuanLyQuanCafe
+GO
+
+CREATE PROCEDURE GetTableFood
+AS
+BEGIN
+    SELECT * FROM TableFood;
+END;
+GO
