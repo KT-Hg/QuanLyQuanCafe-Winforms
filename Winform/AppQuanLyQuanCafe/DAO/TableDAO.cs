@@ -38,5 +38,15 @@ namespace AppQuanLyQuanCafe.DAO
 
             return tableDTOs;
         }
+
+        public void updateTableStatus(int id)
+        {
+            DataProvider.Instance.ExecuteNonQuery("EXEC UpdateTableStatus @id", new object[] { id });
+        }
+
+        public void swapTableStatus(int idTableA, int idTableB)
+        {
+            DataProvider.Instance.ExecuteNonQuery("EXEC SwapTableStatus @TableAId , @TableBId", new object[] { idTableA, idTableB });
+        }
     }
 }

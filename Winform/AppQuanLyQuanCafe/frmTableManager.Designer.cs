@@ -43,14 +43,16 @@
             this.txbAmount = new System.Windows.Forms.TextBox();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lsvBill = new System.Windows.Forms.ListView();
+            this.foodName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.totalPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlPayment = new System.Windows.Forms.Panel();
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.cbbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.nudDiscount = new System.Windows.Forms.NumericUpDown();
             this.btnPayment = new System.Windows.Forms.Button();
-            this.idFood = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.count = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip.SuspendLayout();
             this.pnlAddFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
@@ -129,6 +131,7 @@
             this.cbbCategory.Name = "cbbCategory";
             this.cbbCategory.Size = new System.Drawing.Size(185, 21);
             this.cbbCategory.TabIndex = 3;
+            this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
             // 
             // cbbFood
             // 
@@ -144,6 +147,11 @@
             this.nudAmount.Name = "nudAmount";
             this.nudAmount.Size = new System.Drawing.Size(50, 20);
             this.nudAmount.TabIndex = 5;
+            this.nudAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnAddFood
             // 
@@ -153,6 +161,7 @@
             this.btnAddFood.TabIndex = 6;
             this.btnAddFood.Text = "Thêm món";
             this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // pnlBill
             // 
@@ -171,6 +180,7 @@
             this.txbAmount.ReadOnly = true;
             this.txbAmount.Size = new System.Drawing.Size(215, 20);
             this.txbAmount.TabIndex = 10;
+            this.txbAmount.Text = "0";
             // 
             // lblAmount
             // 
@@ -184,16 +194,38 @@
             // lsvBill
             // 
             this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.idFood,
-            this.count});
+            this.foodName,
+            this.count,
+            this.price,
+            this.totalPrice});
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(5, 5);
+            this.lsvBill.Location = new System.Drawing.Point(5, 4);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.Size = new System.Drawing.Size(320, 265);
             this.lsvBill.TabIndex = 8;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
+            // 
+            // foodName
+            // 
+            this.foodName.Text = "Tên món";
+            this.foodName.Width = 130;
+            // 
+            // count
+            // 
+            this.count.Text = "Số lượng";
+            this.count.Width = 55;
+            // 
+            // price
+            // 
+            this.price.Text = "Giá";
+            this.price.Width = 65;
+            // 
+            // totalPrice
+            // 
+            this.totalPrice.Text = "Thành tiền";
+            this.totalPrice.Width = 65;
             // 
             // pnlPayment
             // 
@@ -215,6 +247,7 @@
             this.btnSwitchTable.TabIndex = 11;
             this.btnSwitchTable.Text = "Chuyển bàn";
             this.btnSwitchTable.UseVisualStyleBackColor = true;
+            this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
             // 
             // cbbSwitchTable
             // 
@@ -232,6 +265,7 @@
             this.btnDiscount.TabIndex = 13;
             this.btnDiscount.Text = "Giảm giá";
             this.btnDiscount.UseVisualStyleBackColor = true;
+            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
             // nudDiscount
             // 
@@ -248,14 +282,7 @@
             this.btnPayment.TabIndex = 14;
             this.btnPayment.Text = "Thanh toán";
             this.btnPayment.UseVisualStyleBackColor = true;
-            // 
-            // idFood
-            // 
-            this.idFood.Text = "ID Food";
-            // 
-            // count
-            // 
-            this.count.Text = "Count";
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // frmTableManager
             // 
@@ -307,7 +334,9 @@
         private System.Windows.Forms.NumericUpDown nudDiscount;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Button btnPayment;
-        private System.Windows.Forms.ColumnHeader idFood;
+        private System.Windows.Forms.ColumnHeader foodName;
         private System.Windows.Forms.ColumnHeader count;
+        private System.Windows.Forms.ColumnHeader price;
+        private System.Windows.Forms.ColumnHeader totalPrice;
     }
 }

@@ -48,10 +48,16 @@
   <ItemGroup>
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
+    <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DTO\BillDTO.cs" />
     <Compile Include="DTO\BillInfoDTO.cs" />
+    <Compile Include="DTO\FoodCategoryDTO.cs" />
+    <Compile Include="DTO\FoodDTO.cs" />
+    <Compile Include="DTO\MenuDTO.cs" />
     <Compile Include="DTO\TableDTO.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="frmAccountProfile.cs">
