@@ -28,33 +28,41 @@ GO
 INSERT INTO FoodCategory ([name]) VALUES (N'Đồ uống')
 INSERT INTO FoodCategory ([name]) VALUES (N'Đồ ăn nhẹ')
 INSERT INTO FoodCategory ([name]) VALUES (N'Tráng miệng')
-INSERT INTO FoodCategory ([name]) VALUES (N'Đồ uống nóng')
-INSERT INTO FoodCategory ([name]) VALUES (N'Đồ uống lạnh')
 INSERT INTO FoodCategory ([name]) VALUES (N'Món chính')
 GO
 
 -- Thêm dữ liệu vào bảng Food
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Cà phê sữa', 1, 25000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Sinh tố xoài', 1, 30000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Bánh mì kẹp thịt', 2, 50000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Bánh ngọt', 3, 20000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Trá cà phê', 4, 20000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Trá xanh', 4, 15000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Nước cam', 5, 25000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Nước ép táo', 5, 30000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Phở bò', 6, 45000)
-INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Cơm gà', 6, 50000)
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Cà phê đen', 1, 25000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Nước cam ép', 1, 35000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Nước chanh leo', 1, 30000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Sinh tố dâu tây', 1, 40000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Trà sữa trân châu đường đen', 1, 45000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Bánh mì thịt nướng', 2, 35000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Gỏi cuốn', 2, 25000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Xôi chiên phồng', 2, 30000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Bánh bao nhân thịt', 2, 15000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Chả giò', 2, 20000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Chè trôi nước', 3, 25000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Bánh flan', 3, 35000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Kem dâu tây', 3, 30000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Chuối chiên', 3, 20000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Xôi đậu xanh', 3, 25000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Cơm gà', 4, 45000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Bún chả', 4, 40000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Hủ tiếu', 4, 35000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Phở bò', 4, 50000);
+INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Cơm chiên', 4, 30000);
 GO
 
 -- Thêm dữ liệu vào bảng Bill
 INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-01', '2023-05-01', 1, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-02', '2023-05-02', 2, 1)
+INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-02', NULL, 2, 0)
 INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-03', '2023-05-03', 3, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-04', '2023-05-04', 4, 1)
+INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-04', NULL, 4, 0)
 INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-05', '2023-05-05', 5, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-06', '2023-05-06', 6, 1)
+INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-06', NULL, 6, 0)
 INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-07', '2023-05-07', 7, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-08', '2023-05-08', 8, 1)
+INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-08', NULL, 8, 0)
 INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-09', '2023-05-09', 9, 1)
 GO
 
@@ -69,8 +77,6 @@ INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (5, 7, 3)
 INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (5, 8, 1)
 INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (6, 9, 2)
 INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (7, 10, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (7, 11, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (8, 12, 3)
 INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (9, 1, 1)
 INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (9, 2, 1)
 GO

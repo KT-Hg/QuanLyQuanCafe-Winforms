@@ -52,7 +52,8 @@ CREATE TABLE Bill
 	[dateCheckIn] DATE NOT NULL DEFAULT GETDATE(),
 	[dateCheckOut] DATE,
 	[idTable] INT NOT NULL,
-	[status] INT NOT NULL DEFAULT 0
+	[status] INT NOT NULL DEFAULT 0,
+	[discount] INT NOT NULL DEFAULT 0
 
 	FOREIGN KEY ([idTable]) REFERENCES dbo.TableFood([id])
 
