@@ -32,22 +32,22 @@ namespace AppQuanLyQuanCafe.DAO
             return -1;
         }
 
-        public void insertBill(int idTable)
+        public void InsertBill(int idTable)
         {
             DataProvider.Instance.ExecuteNonQuery("EXEC InsertBill @idTable", new object[] { idTable });
         }
 
-        public int getMaxIdBill()
+        public int GetMaxIdBill()
         {
             return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(id) FROM Bill");
         }
 
-        public void updateBill(int id, int discount = 0)
+        public void UpdateBill(int id, int discount = 0)
         {
             DataProvider.Instance.ExecuteNonQuery("EXEC UpdateBill @id , @discount", new object[] { id , discount });
         }
 
-        public void swapBill(int idTableA, int idTableB)
+        public void SwapBill(int idTableA, int idTableB)
         {
             DataProvider.Instance.ExecuteNonQuery("EXEC SwapTableBill @TableAId , @TableBId", new object[] { idTableA, idTableB });
         }

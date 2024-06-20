@@ -20,12 +20,10 @@ namespace AppQuanLyQuanCafe.DAO
 
         private MenuDAO() { }
 
-        public List<MenuDTO> GetListMenuByTable(int id) 
+        public List<MenuDTO> GetListMenuByTable(int idTable) 
         {
             List<MenuDTO> menuDTOs = new List<MenuDTO>();
-            string query = "SELECT f.name, bi.count, f.price, f.price * bi.count AS totalPrice FROM dbo. BillInfo AS bi, dbo. Bill AS b, dbo. Food AS f " +
-                "WHERE bi.idBill = b.id AND bi.idFood = f.id AND b.status = 0 AND b.idTable = " + id;
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query);
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery("EXEC GetListMenuByTable @idTable", new object[] {idTable});
             foreach (DataRow row in dataTable.Rows)
             {
                 MenuDTO menuDTO = new MenuDTO(row);

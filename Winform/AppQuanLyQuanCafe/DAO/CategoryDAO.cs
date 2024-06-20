@@ -20,7 +20,7 @@ namespace AppQuanLyQuanCafe.DAO
 
         private CategoryDAO() { }
 
-        public List<FoodCategoryDTO> getListCategory()
+        public List<FoodCategoryDTO> GetListCategory()
         {
             List<FoodCategoryDTO> foodCategoryDTOs = new List<FoodCategoryDTO>();
             string query = "SELECT * FROM FoodCategory";

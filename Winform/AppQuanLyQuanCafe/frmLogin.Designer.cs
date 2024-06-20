@@ -30,14 +30,14 @@
         {
             this.pnlFullScreen = new System.Windows.Forms.Panel();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.pnlUserName = new System.Windows.Forms.Panel();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.txbUserName = new System.Windows.Forms.TextBox();
-            this.pnlPassWord = new System.Windows.Forms.Panel();
-            this.lblPassWord = new System.Windows.Forms.Label();
-            this.txbPassWord = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.pnlPassWord = new System.Windows.Forms.Panel();
+            this.txbPassWord = new System.Windows.Forms.TextBox();
+            this.lblPassWord = new System.Windows.Forms.Label();
+            this.pnlUserName = new System.Windows.Forms.Panel();
+            this.txbUserName = new System.Windows.Forms.TextBox();
+            this.lblUserName = new System.Windows.Forms.Label();
             this.pnlFullScreen.SuspendLayout();
             this.pnlPassWord.SuspendLayout();
             this.pnlUserName.SuspendLayout();
@@ -64,56 +64,15 @@
             this.lblLogin.Text = "LOG IN";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlUserName
+            // btnExit
             // 
-            this.pnlUserName.Controls.Add(this.txbUserName);
-            this.pnlUserName.Controls.Add(this.lblUserName);
-            this.pnlUserName.Location = new System.Drawing.Point(25, 40);
-            this.pnlUserName.Name = "pnlUserName";
-            this.pnlUserName.Size = new System.Drawing.Size(300, 40);
-            this.pnlUserName.TabIndex = 2;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.Location = new System.Drawing.Point(20, 10);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(90, 20);
-            this.lblUserName.TabIndex = 3;
-            this.lblUserName.Text = "Tên đăng nhập:";
-            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txbUserName
-            // 
-            this.txbUserName.Location = new System.Drawing.Point(120, 10);
-            this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(160, 20);
-            this.txbUserName.TabIndex = 4;
-            // 
-            // pnlPassWord
-            // 
-            this.pnlPassWord.Controls.Add(this.txbPassWord);
-            this.pnlPassWord.Controls.Add(this.lblPassWord);
-            this.pnlPassWord.Location = new System.Drawing.Point(25, 90);
-            this.pnlPassWord.Name = "pnlPassWord";
-            this.pnlPassWord.Size = new System.Drawing.Size(300, 40);
-            this.pnlPassWord.TabIndex = 5;
-            // 
-            // lblPassWord
-            // 
-            this.lblPassWord.Location = new System.Drawing.Point(20, 10);
-            this.lblPassWord.Name = "lblPassWord";
-            this.lblPassWord.Size = new System.Drawing.Size(90, 20);
-            this.lblPassWord.TabIndex = 6;
-            this.lblPassWord.Text = "Mật khẩu:";
-            this.lblPassWord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txbPassWord
-            // 
-            this.txbPassWord.Location = new System.Drawing.Point(120, 10);
-            this.txbPassWord.Name = "txbPassWord";
-            this.txbPassWord.Size = new System.Drawing.Size(160, 20);
-            this.txbPassWord.TabIndex = 7;
-            this.txbPassWord.UseSystemPasswordChar = true;
+            this.btnExit.Location = new System.Drawing.Point(250, 140);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 25);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogin
             // 
@@ -125,15 +84,58 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // btnExit
+            // pnlPassWord
             // 
-            this.btnExit.Location = new System.Drawing.Point(250, 140);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 25);
-            this.btnExit.TabIndex = 9;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.pnlPassWord.Controls.Add(this.txbPassWord);
+            this.pnlPassWord.Controls.Add(this.lblPassWord);
+            this.pnlPassWord.Location = new System.Drawing.Point(25, 90);
+            this.pnlPassWord.Name = "pnlPassWord";
+            this.pnlPassWord.Size = new System.Drawing.Size(300, 40);
+            this.pnlPassWord.TabIndex = 5;
+            // 
+            // txbPassWord
+            // 
+            this.txbPassWord.Location = new System.Drawing.Point(120, 10);
+            this.txbPassWord.Name = "txbPassWord";
+            this.txbPassWord.Size = new System.Drawing.Size(160, 20);
+            this.txbPassWord.TabIndex = 7;
+            this.txbPassWord.Text = "123456";
+            this.txbPassWord.UseSystemPasswordChar = true;
+            // 
+            // lblPassWord
+            // 
+            this.lblPassWord.Location = new System.Drawing.Point(20, 10);
+            this.lblPassWord.Name = "lblPassWord";
+            this.lblPassWord.Size = new System.Drawing.Size(90, 20);
+            this.lblPassWord.TabIndex = 6;
+            this.lblPassWord.Text = "Mật khẩu:";
+            this.lblPassWord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlUserName
+            // 
+            this.pnlUserName.Controls.Add(this.txbUserName);
+            this.pnlUserName.Controls.Add(this.lblUserName);
+            this.pnlUserName.Location = new System.Drawing.Point(25, 40);
+            this.pnlUserName.Name = "pnlUserName";
+            this.pnlUserName.Size = new System.Drawing.Size(300, 40);
+            this.pnlUserName.TabIndex = 2;
+            // 
+            // txbUserName
+            // 
+            this.txbUserName.Location = new System.Drawing.Point(120, 10);
+            this.txbUserName.Name = "txbUserName";
+            this.txbUserName.Size = new System.Drawing.Size(160, 20);
+            this.txbUserName.TabIndex = 4;
+            this.txbUserName.Text = "admin";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Location = new System.Drawing.Point(20, 10);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(90, 20);
+            this.lblUserName.TabIndex = 3;
+            this.lblUserName.Text = "Tên đăng nhập:";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmLogin
             // 

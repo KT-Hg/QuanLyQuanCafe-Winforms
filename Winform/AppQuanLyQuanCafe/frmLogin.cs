@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using AppQuanLyQuanCafe.DAO;
+using AppQuanLyQuanCafe.DTO;
 
 namespace AppQuanLyQuanCafe
 {
@@ -14,7 +16,7 @@ namespace AppQuanLyQuanCafe
             InitializeComponent();
         }
 
-        SqlConnection sqlConnection = null;
+        #region Method
 
         private string CalculateSHA1(string input)
         {
@@ -27,37 +29,18 @@ namespace AppQuanLyQuanCafe
             }
         }
 
+        #endregion
+
+        #region Event
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (sqlConnection == null)
-            {
-                sqlConnection = new SqlConnection(@"Data Source=HG;Initial Catalog=QLSV;Integrated Security=True");
-            }
-            if (sqlConnection.State == ConnectionState.Closed)
-            {
-                sqlConnection.Open();
-            }
-
             string username = txbUserName.Text.Trim();
             string password = txbPassWord.Text.Trim();
 
-            /*SqlCommand sqlCommand = new SqlCommand();
-            sqlCommand.CommandType = CommandType.Text;
-            string querySinhVien = "SELECT COUNT(*) FROM SINHVIEN WHERE TENDN = @Username AND MATKHAU = 0x" + CalculateSHA1(password);
-            SqlCommand commandSinhVien = new SqlCommand(querySinhVien, sqlConnection);
-            commandSinhVien.Parameters.AddWithValue("@Username", username);
-            int countSinhVien = (int)commandSinhVien.ExecuteScalar();
-
-
-            string queryNhanVien = "SELECT COUNT(*) FROM NHANVIEN WHERE TENDN = @Username AND MATKHAU = 0x" + CalculateSHA1(password);
-            SqlCommand commandNhanVien = new SqlCommand(queryNhanVien, sqlConnection);
-            commandNhanVien.Parameters.AddWithValue("@Username", username);
-            int countNhanVien = (int)commandNhanVien.ExecuteScalar();
-
-            if (countSinhVien > 0 || countNhanVien > 0)*/
-            if (true)
+            if (AccountDAO.Instance.Login(username, password)) 
             {
-                frmTableManager frmTableManager = new frmTableManager();
+                frmTableManager frmTableManager = new frmTableManager(AccountDAO.Instance.GetAccountByUserName(username));
                 this.Hide();
                 frmTableManager.ShowDialog();
                 this.Show();
@@ -80,5 +63,7 @@ namespace AppQuanLyQuanCafe
                 e.Cancel = true;
             }
         }
-    }   
+
+        #endregion
+    }
 }

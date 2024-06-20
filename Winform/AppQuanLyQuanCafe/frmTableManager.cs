@@ -15,36 +15,40 @@ namespace AppQuanLyQuanCafe
 {
     public partial class frmTableManager : Form
     {
-        public frmTableManager()
+        private AccountDTO accountDTO;
+
+        public frmTableManager(AccountDTO accountDTO)
         {
             InitializeComponent();
-            loadTable();
-            loadCategory();
-            loadTableList();
-        }
-
-        private void frmTableManager_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
+            LoadTable();
+            LoadCategory();
+            LoadTableList();
+            this.accountDTO = accountDTO;
+            ChangeAccount(accountDTO.Type);
         }
 
         #region Method
         
-        void loadCategory()
+        void ChangeAccount(int type)
         {
-            List<FoodCategoryDTO> foodCategoryDTOs = CategoryDAO.Instance.getListCategory();
+            tsmAdmin.Enabled = type == 1;
+        }
+
+        void LoadCategory()
+        {
+            List<FoodCategoryDTO> foodCategoryDTOs = CategoryDAO.Instance.GetListCategory();
             cbbCategory.DataSource = foodCategoryDTOs;
             cbbCategory.DisplayMember = "name";
         }
 
-        void loadFoodlistByCategoryId(int categoryId)
+        void LoadFoodlistByCategoryId(int categoryId)
         {
-            List<FoodDTO> foodDTOs=FoodDAO.Instance.getListFoodByCategoryId(categoryId);
+            List<FoodDTO> foodDTOs=FoodDAO.Instance.GetListFoodByCategoryId(categoryId);
             cbbFood.DataSource = foodDTOs;
             cbbFood.DisplayMember = "name";
         }
 
-        void loadTable()
+        void LoadTable()
         {
             List<TableDTO> tableDTOs = TableDAO.Instance.LoadTableList();
             flpTable.Controls.Clear();
@@ -58,14 +62,14 @@ namespace AppQuanLyQuanCafe
             }
         }
 
-        void loadTableList()
+        void LoadTableList()
         {
             List<TableDTO> tableDTOs = TableDAO.Instance.LoadTableList();
             cbbSwitchTable.DataSource = tableDTOs;
             cbbSwitchTable.DisplayMember = "name";
         }
 
-        void showBill(int id)
+        void ShowBill(int id)
         {
             lsvBill.Items.Clear();
             List<MenuDTO> menuDTOs = MenuDAO.Instance.GetListMenuByTable(id);
@@ -84,17 +88,23 @@ namespace AppQuanLyQuanCafe
             txbAmount.Text = totalPrice.ToString("c",cultureInfo);
 
         }
-        
+
 
         #endregion
 
         #region Event
+
+        private void frmTableManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void btn_Click(object sender, EventArgs e)
         {
             int tableId=((sender as Button).Tag as TableDTO).Id;
             lsvBill.Tag = (sender as Button).Tag;
             nudDiscount.Value = 0;
-            showBill(tableId);
+            ShowBill(tableId);
 
         }
         private void tsmAdmin_Click(object sender, EventArgs e)
@@ -124,7 +134,7 @@ namespace AppQuanLyQuanCafe
             if (comboBoxCategory.SelectedItem == null) return;
             FoodCategoryDTO categoryDTO = comboBoxCategory.SelectedItem as FoodCategoryDTO;
             categoryId = categoryDTO.Id;
-            loadFoodlistByCategoryId(categoryId);
+            LoadFoodlistByCategoryId(categoryId);
         }
 
         private void btnAddFood_Click(object sender, EventArgs e)
@@ -148,16 +158,16 @@ namespace AppQuanLyQuanCafe
 
             if (idBill == -1)
             {
-                BillDAO.Instance.insertBill(tableDTO.Id);
-                TableDAO.Instance.updateTableStatus(tableDTO.Id);
-                loadTable();
-                BillInfoDAO.Instance.insertBillInfo(BillDAO.Instance.getMaxIdBill(), foodDTO.Id, (int)nudAmount.Value);
+                BillDAO.Instance.InsertBill(tableDTO.Id);
+                TableDAO.Instance.UpdateTableStatus(tableDTO.Id);
+                LoadTable();
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIdBill(), foodDTO.Id, (int)nudAmount.Value);
             }
             else
             {
-                BillInfoDAO.Instance.insertBillInfo(idBill, foodDTO.Id, (int)nudAmount.Value);
+                BillInfoDAO.Instance.InsertBillInfo(idBill, foodDTO.Id, (int)nudAmount.Value);
             }
-            showBill(tableDTO.Id);
+            ShowBill(tableDTO.Id);
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
@@ -179,12 +189,12 @@ namespace AppQuanLyQuanCafe
             {
                 if (MessageBox.Show("Bạn có chắc thanh toán hoá đơn cho bàn " + tableDTO.Id + ".", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.updateBill(idBill, (int)nudDiscount.Value);
-                    TableDAO.Instance.updateTableStatus(tableDTO.Id);
-                    loadTable();
+                    BillDAO.Instance.UpdateBill(idBill, (int)nudDiscount.Value);
+                    TableDAO.Instance.UpdateTableStatus(tableDTO.Id);
+                    LoadTable();
                 }
             }
-            showBill(tableDTO.Id);
+            ShowBill(tableDTO.Id);
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
@@ -195,7 +205,7 @@ namespace AppQuanLyQuanCafe
                 MessageBox.Show("Bạn chưa chọn bàn.", "Thông báo");
                 return;
             }
-            showBill(tableDTO.Id);
+            ShowBill(tableDTO.Id);
         }
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
@@ -206,10 +216,10 @@ namespace AppQuanLyQuanCafe
                 MessageBox.Show("Bạn chưa chọn bàn.", "Thông báo");
                 return;
             }
-            TableDAO.Instance.swapTableStatus(tableDTO.Id, (cbbSwitchTable.SelectedItem as TableDTO).Id);
-            BillDAO.Instance.swapBill(tableDTO.Id, (cbbSwitchTable.SelectedItem as TableDTO).Id);
-            loadTable();
-            showBill(tableDTO.Id);
+            TableDAO.Instance.SwapTableStatus(tableDTO.Id, (cbbSwitchTable.SelectedItem as TableDTO).Id);
+            BillDAO.Instance.SwapBill(tableDTO.Id, (cbbSwitchTable.SelectedItem as TableDTO).Id);
+            LoadTable();
+            ShowBill(tableDTO.Id);
         }
 
         #endregion

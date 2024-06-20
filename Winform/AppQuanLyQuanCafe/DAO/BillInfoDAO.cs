@@ -33,7 +33,7 @@ namespace AppQuanLyQuanCafe.DAO
             return billInfoDTOs;
         }
 
-        public void insertBillInfo(int idBill, int idFood, int count)
+        public void InsertBillInfo(int idBill, int idFood, int count)
         {
             DataProvider.Instance.ExecuteNonQuery("EXEC InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
         }
