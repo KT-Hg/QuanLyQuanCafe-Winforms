@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppQuanLyQuanCafe.DAO
 {
@@ -38,6 +39,25 @@ namespace AppQuanLyQuanCafe.DAO
             return null;
         }
 
+        public bool UpdateAccount(AccountDTO accountDTO, string displayName, string userName, string passWord = "") 
+        {
+            if (passWord == "")
+            {
+                passWord = accountDTO.PassWord;
+            }
+
+            try 
+            {
+                int result = (int)DataProvider.Instance.ExecuteNonQuery("EXEC UpdateAccount @userNameOld , @passWordOld , @displayNameNew , @userNameNew , @passWordNew"
+                    , new object[] { accountDTO.UserName, accountDTO.PassWord, displayName, userName, passWord });
+                return (result > 0);
+            }
+            catch 
+            {
+                MessageBox.Show("Tên đăng nhập đã tồn tại.", "Thông báo");
+                return false;
+            }
+        }
 
     }
 }

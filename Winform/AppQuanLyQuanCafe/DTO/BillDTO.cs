@@ -9,7 +9,7 @@ namespace AppQuanLyQuanCafe.DTO
 {
     public class BillDTO
     {
-        public BillDTO(int id, DateTime dateCheckIn, DateTime? dateCheckOut, int idTable, int status, int discount)
+        public BillDTO(int id, DateTime dateCheckIn, DateTime? dateCheckOut, int idTable, int status, int discount, float totalPrice)
         {
             this.id = id;
             this.dateCheckIn = dateCheckIn;
@@ -17,6 +17,7 @@ namespace AppQuanLyQuanCafe.DTO
             this.idTable = idTable;
             this.status = status;
             this.discount = discount;
+            this.totalPrice = totalPrice;
         }
 
         public BillDTO(DataRow dataRow)
@@ -27,6 +28,7 @@ namespace AppQuanLyQuanCafe.DTO
             this.idTable = (int)dataRow["idTable"];
             this.status = (int)dataRow["status"];
             this.discount = (int)dataRow["discount"];
+            this.totalPrice = (float)Convert.ToDouble(dataRow["totalPrice"].ToString());
         }
 
         private int id;
@@ -35,6 +37,7 @@ namespace AppQuanLyQuanCafe.DTO
         private int idTable;
         private int status;
         private int discount;
+        private float totalPrice;
 
         public int Id{ get => id; set => id = value; }
 
@@ -47,5 +50,7 @@ namespace AppQuanLyQuanCafe.DTO
         public int Status { get => status; set => status = value; }
 
         public int Discount { get => discount; set => discount = value; }
+
+        public float TotalPrice { get => totalPrice; set => totalPrice = value; }
     }
 }

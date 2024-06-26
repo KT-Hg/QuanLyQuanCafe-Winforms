@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace AppQuanLyQuanCafe.DAO
 {
-    public class CategoryDAO
+    public class FoodCategoryDAO
     {
-        private static CategoryDAO instance;
+        private static FoodCategoryDAO instance;
 
-        public static CategoryDAO Instance
+        public static FoodCategoryDAO Instance
         {
-            get { if (instance == null) instance = new CategoryDAO(); return CategoryDAO.instance; }
-            private set { CategoryDAO.instance = value; }
+            get { if (instance == null) instance = new FoodCategoryDAO(); return FoodCategoryDAO.instance; }
+            private set { FoodCategoryDAO.instance = value; }
         }
 
-        private CategoryDAO() { }
+        private FoodCategoryDAO() { }
 
         public List<FoodCategoryDTO> GetListCategory()
         {

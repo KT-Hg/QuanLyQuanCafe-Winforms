@@ -36,9 +36,9 @@ namespace AppQuanLyQuanCafe
 
         void LoadCategory()
         {
-            List<FoodCategoryDTO> foodCategoryDTOs = CategoryDAO.Instance.GetListCategory();
-            cbbCategory.DataSource = foodCategoryDTOs;
-            cbbCategory.DisplayMember = "name";
+            List<FoodCategoryDTO> foodCategoryDTOs = FoodCategoryDAO.Instance.GetListCategory();
+            cbbFoodCategory.DataSource = foodCategoryDTOs;
+            cbbFoodCategory.DisplayMember = "name";
         }
 
         void LoadFoodlistByCategoryId(int categoryId)
@@ -86,7 +86,8 @@ namespace AppQuanLyQuanCafe
             CultureInfo cultureInfo =new CultureInfo("vi-VN");
             totalPrice *= (1 - (int)nudDiscount.Value / 100f);
             txbAmount.Text = totalPrice.ToString("c",cultureInfo);
-
+            txbAmount.Tag = totalPrice.ToString();
+            
         }
 
 
@@ -117,7 +118,7 @@ namespace AppQuanLyQuanCafe
 
         private void tsmAccountProfile_Click(object sender, EventArgs e)
         {
-            frmAccountProfile frmAccountProfile = new frmAccountProfile();
+            frmAccountProfile frmAccountProfile = new frmAccountProfile(accountDTO);
             frmAccountProfile.ShowDialog();
             this.Show();
         }
@@ -189,7 +190,7 @@ namespace AppQuanLyQuanCafe
             {
                 if (MessageBox.Show("Bạn có chắc thanh toán hoá đơn cho bàn " + tableDTO.Id + ".", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
-                    BillDAO.Instance.UpdateBill(idBill, (int)nudDiscount.Value);
+                    BillDAO.Instance.UpdateBill(idBill, (int)nudDiscount.Value,(float)Convert.ToDouble(txbAmount.Tag.ToString()));
                     TableDAO.Instance.UpdateTableStatus(tableDTO.Id);
                     LoadTable();
                 }

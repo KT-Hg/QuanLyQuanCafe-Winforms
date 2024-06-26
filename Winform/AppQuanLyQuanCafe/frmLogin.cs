@@ -35,8 +35,8 @@ namespace AppQuanLyQuanCafe
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txbUserName.Text.Trim();
-            string password = txbPassWord.Text.Trim();
+            string username = txbUserName.Text;
+            string password = txbPassWord.Text;
 
             if (AccountDAO.Instance.Login(username, password)) 
             {

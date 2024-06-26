@@ -40,9 +40,9 @@
             this.pnlPassWord = new System.Windows.Forms.Panel();
             this.txbPassWord = new System.Windows.Forms.TextBox();
             this.lblPassWord = new System.Windows.Forms.Label();
-            this.pnlName = new System.Windows.Forms.Panel();
-            this.txbName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
+            this.pnlDisplayName = new System.Windows.Forms.Panel();
+            this.txbDisplayName = new System.Windows.Forms.TextBox();
+            this.lblDisplayName = new System.Windows.Forms.Label();
             this.pnlUserName = new System.Windows.Forms.Panel();
             this.txbUserName = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.pnlConfirmNewPassWord.SuspendLayout();
             this.pnlNewPassWord.SuspendLayout();
             this.pnlPassWord.SuspendLayout();
-            this.pnlName.SuspendLayout();
+            this.pnlDisplayName.SuspendLayout();
             this.pnlUserName.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             this.pnlAccountProfile.Controls.Add(this.pnlConfirmNewPassWord);
             this.pnlAccountProfile.Controls.Add(this.pnlNewPassWord);
             this.pnlAccountProfile.Controls.Add(this.pnlPassWord);
-            this.pnlAccountProfile.Controls.Add(this.pnlName);
+            this.pnlAccountProfile.Controls.Add(this.pnlDisplayName);
             this.pnlAccountProfile.Controls.Add(this.pnlUserName);
             this.pnlAccountProfile.Location = new System.Drawing.Point(10, 10);
             this.pnlAccountProfile.Name = "pnlAccountProfile";
@@ -86,6 +86,7 @@
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // pnlConfirmNewPassWord
             // 
@@ -102,6 +103,7 @@
             this.txbConfirmNewPassWord.Name = "txbConfirmNewPassWord";
             this.txbConfirmNewPassWord.Size = new System.Drawing.Size(185, 20);
             this.txbConfirmNewPassWord.TabIndex = 4;
+            this.txbConfirmNewPassWord.UseSystemPasswordChar = true;
             // 
             // lblConfirmNewPassWord
             // 
@@ -127,6 +129,7 @@
             this.txbNewPassWord.Name = "txbNewPassWord";
             this.txbNewPassWord.Size = new System.Drawing.Size(185, 20);
             this.txbNewPassWord.TabIndex = 4;
+            this.txbNewPassWord.UseSystemPasswordChar = true;
             // 
             // lblNewPassWord
             // 
@@ -152,6 +155,7 @@
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(185, 20);
             this.txbPassWord.TabIndex = 4;
+            this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // lblPassWord
             // 
@@ -162,30 +166,30 @@
             this.lblPassWord.Text = "Mật khẩu:";
             this.lblPassWord.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlName
+            // pnlDisplayName
             // 
-            this.pnlName.Controls.Add(this.txbName);
-            this.pnlName.Controls.Add(this.lblName);
-            this.pnlName.Location = new System.Drawing.Point(25, 100);
-            this.pnlName.Name = "pnlName";
-            this.pnlName.Size = new System.Drawing.Size(350, 40);
-            this.pnlName.TabIndex = 5;
+            this.pnlDisplayName.Controls.Add(this.txbDisplayName);
+            this.pnlDisplayName.Controls.Add(this.lblDisplayName);
+            this.pnlDisplayName.Location = new System.Drawing.Point(25, 100);
+            this.pnlDisplayName.Name = "pnlDisplayName";
+            this.pnlDisplayName.Size = new System.Drawing.Size(350, 40);
+            this.pnlDisplayName.TabIndex = 5;
             // 
-            // txbName
+            // txbDisplayName
             // 
-            this.txbName.Location = new System.Drawing.Point(145, 10);
-            this.txbName.Name = "txbName";
-            this.txbName.Size = new System.Drawing.Size(185, 20);
-            this.txbName.TabIndex = 4;
+            this.txbDisplayName.Location = new System.Drawing.Point(145, 10);
+            this.txbDisplayName.Name = "txbDisplayName";
+            this.txbDisplayName.Size = new System.Drawing.Size(185, 20);
+            this.txbDisplayName.TabIndex = 4;
             // 
-            // lblName
+            // lblDisplayName
             // 
-            this.lblName.Location = new System.Drawing.Point(20, 10);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(110, 20);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Tên hiển thị:";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDisplayName.Location = new System.Drawing.Point(20, 10);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(110, 20);
+            this.lblDisplayName.TabIndex = 3;
+            this.lblDisplayName.Text = "Tên hiển thị:";
+            this.lblDisplayName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlUserName
             // 
@@ -228,8 +232,8 @@
             this.pnlNewPassWord.PerformLayout();
             this.pnlPassWord.ResumeLayout(false);
             this.pnlPassWord.PerformLayout();
-            this.pnlName.ResumeLayout(false);
-            this.pnlName.PerformLayout();
+            this.pnlDisplayName.ResumeLayout(false);
+            this.pnlDisplayName.PerformLayout();
             this.pnlUserName.ResumeLayout(false);
             this.pnlUserName.PerformLayout();
             this.ResumeLayout(false);
@@ -243,9 +247,9 @@
         private System.Windows.Forms.Panel pnlUserName;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.TextBox txbUserName;
-        private System.Windows.Forms.Panel pnlName;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txbName;
+        private System.Windows.Forms.Panel pnlDisplayName;
+        private System.Windows.Forms.Label lblDisplayName;
+        private System.Windows.Forms.TextBox txbDisplayName;
         private System.Windows.Forms.Panel pnlPassWord;
         private System.Windows.Forms.Label lblPassWord;
         private System.Windows.Forms.TextBox txbPassWord;

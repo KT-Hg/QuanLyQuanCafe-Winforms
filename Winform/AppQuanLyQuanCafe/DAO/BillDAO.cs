@@ -32,6 +32,13 @@ namespace AppQuanLyQuanCafe.DAO
             return -1;
         }
 
+        public DataTable GetListBillByDate(DateTime startDate, DateTime endDate) 
+        {
+            DataTable dataTable;
+            dataTable = DataProvider.Instance.ExecuteQuery("EXEC GetListBillByDate @StartDate , @EndDate", new object[] { startDate, endDate });
+            return dataTable;
+        }
+
         public void InsertBill(int idTable)
         {
             DataProvider.Instance.ExecuteNonQuery("EXEC InsertBill @idTable", new object[] { idTable });
@@ -42,9 +49,9 @@ namespace AppQuanLyQuanCafe.DAO
             return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(id) FROM Bill");
         }
 
-        public void UpdateBill(int id, int discount = 0)
+        public void UpdateBill(int id, int discount = 0, float totalPrice = 0)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC UpdateBill @id , @discount", new object[] { id , discount });
+            DataProvider.Instance.ExecuteNonQuery("EXEC UpdateBill @id , @discount , @totalPrice", new object[] { id , discount , totalPrice});
         }
 
         public void SwapBill(int idTableA, int idTableB)
