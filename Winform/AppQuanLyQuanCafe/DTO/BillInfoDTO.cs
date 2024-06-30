@@ -21,7 +21,7 @@ namespace AppQuanLyQuanCafe.DTO
         {
             this.id = (int)dataRow["id"];
             this.idBill = (int)dataRow["idBill"];
-            this.idFood = (int)dataRow["idFood"];
+            this.idFood = dataRow["idFood"] != DBNull.Value ? (int)dataRow["idFood"] : 0;
             this.count = (int)dataRow["count"];
         }
 

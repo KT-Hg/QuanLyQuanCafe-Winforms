@@ -36,9 +36,9 @@ namespace AppQuanLyQuanCafe
 
         void LoadCategory()
         {
-            List<FoodCategoryDTO> foodCategoryDTOs = FoodCategoryDAO.Instance.GetListCategory();
-            cbbFoodCategory.DataSource = foodCategoryDTOs;
-            cbbFoodCategory.DisplayMember = "name";
+            List<CategoryDTO> foodCategoryDTOs = CategoryDAO.Instance.GetListCategory();
+            cbbCategory.DataSource = foodCategoryDTOs;
+            cbbCategory.DisplayMember = "name";
         }
 
         void LoadFoodlistByCategoryId(int categoryId)
@@ -114,6 +114,9 @@ namespace AppQuanLyQuanCafe
             this.Hide();
             frmAdmin.ShowDialog();
             this.Show();
+            LoadTable();
+            LoadCategory();
+            LoadTableList();
         }
 
         private void tsmAccountProfile_Click(object sender, EventArgs e)
@@ -133,7 +136,7 @@ namespace AppQuanLyQuanCafe
             int categoryId = 0;
             ComboBox comboBoxCategory = sender as ComboBox;
             if (comboBoxCategory.SelectedItem == null) return;
-            FoodCategoryDTO categoryDTO = comboBoxCategory.SelectedItem as FoodCategoryDTO;
+            CategoryDTO categoryDTO = comboBoxCategory.SelectedItem as CategoryDTO;
             categoryId = categoryDTO.Id;
             LoadFoodlistByCategoryId(categoryId);
         }

@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AppQuanLyQuanCafe.DAO
 {
@@ -57,6 +59,31 @@ namespace AppQuanLyQuanCafe.DAO
         public void SwapBill(int idTableA, int idTableB)
         {
             DataProvider.Instance.ExecuteNonQuery("EXEC SwapTableBill @TableAId , @TableBId", new object[] { idTableA, idTableB });
+        }
+
+        public bool UpdateIdTableBill(int id, int? idTable)
+        {
+            string query = "EXEC UpdateIdTableBill @id , @idTable";
+            int result;
+            if (idTable == null)
+                result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, DBNull.Value });
+            else
+                result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, idTable });
+            
+            return result > 0;
+        }
+
+        public List<BillDTO> GetListBillByIdTable(int idTable) 
+        {
+            List<BillDTO> billDTOs = new List<BillDTO>();
+            string query = "EXEC GetBillByIdTable @idTable";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { idTable });
+            foreach (DataRow row in dataTable.Rows)
+            {
+                BillDTO billDTO = new BillDTO(row);
+                billDTOs.Add(billDTO);
+            }
+            return billDTOs;
         }
     }
 }

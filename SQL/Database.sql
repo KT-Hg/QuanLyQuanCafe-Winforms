@@ -23,7 +23,7 @@ CREATE TABLE Account
 (
 	[displayName] NVARCHAR(100) NOT NULL ,
 	[userName] NVARCHAR(100) PRIMARY KEY,
-	[passWord] NVARCHAR(MAX) NOT NULL,
+	[passWord] NVARCHAR(MAX) NOT NULL DEFAULT N'0',
 	[type] INT NOT NULL
 )
 GO
@@ -39,7 +39,7 @@ CREATE TABLE Food
 (
 	[id] INT IDENTITY PRIMARY KEY,
 	[name] NVARCHAR(100) NOT NULL DEFAULT N'Chưa đặt tên',
-	[idCategory] INT NOT NULL,
+	[idCategory] INT,
 	[price] FLOAT NOT NULL DEFAULT 0
 
 	FOREIGN KEY ([idCategory]) REFERENCES dbo.FoodCategory([id])
@@ -51,9 +51,10 @@ CREATE TABLE Bill
 	[id] INT IDENTITY PRIMARY KEY,
 	[dateCheckIn] DATE NOT NULL DEFAULT GETDATE(),
 	[dateCheckOut] DATE,
-	[idTable] INT NOT NULL,
+	[idTable] INT,
 	[status] INT NOT NULL DEFAULT 0,
-	[discount] INT NOT NULL DEFAULT 0
+	[discount] INT NOT NULL DEFAULT 0,
+	[totalPrice] FLOAT NOT NULL DEFAULT 0
 
 	FOREIGN KEY ([idTable]) REFERENCES dbo.TableFood([id])
 
@@ -64,7 +65,7 @@ CREATE TABLE BillInfo
 (
 	[id] INT IDENTITY PRIMARY KEY,
 	[idBill] INT NOT NULL,
-	[idFood] INT NOT NULL,
+	[idFood] INT,
 	[count] INT NOT NULL DEFAULT 0,
 
 	FOREIGN KEY ([idBill]) REFERENCES dbo.Bill([id]),

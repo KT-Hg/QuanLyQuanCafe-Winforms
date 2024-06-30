@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace AppQuanLyQuanCafe.DTO
 {
-    public class FoodCategoryDTO
+    public class CategoryDTO
     {
-        public FoodCategoryDTO(int id, string name)
+        public CategoryDTO(int id, string name)
         {
             this.id = id;
             this.name = name;
         }
 
-        public FoodCategoryDTO(DataRow dataRow)
+        public CategoryDTO(DataRow dataRow)
         {
             this.id = (int)dataRow["id"];
             this.name = dataRow["name"].ToString();

@@ -3,15 +3,25 @@ GO
 
 -- Thêm dữ liệu vào bảng TableFood
 INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 1', N'Trống')
-INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 2', N'Có người')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 2', N'Trống')
 INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 3', N'Trống')
-INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 4', N'Có người')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 4', N'Trống')
 INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 5', N'Trống')
-INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 6', N'Có người')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 6', N'Trống')
 INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 7', N'Trống')
-INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 8', N'Có người')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 8', N'Trống')
 INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 9', N'Trống')
-INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 10', N'Có người')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 10', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 11', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 12', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 13', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 14', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 15', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 16', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 17', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 18', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 19', N'Trống')
+INSERT INTO TableFood ([name], [status]) VALUES (N'Bàn 20', N'Trống')
 GO
 
 -- Thêm dữ liệu vào bảng Account
@@ -54,29 +64,3 @@ INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Phở bò', 4, 50000)
 INSERT INTO Food ([name], [idCategory], [price]) VALUES (N'Cơm chiên', 4, 30000);
 GO
 
--- Thêm dữ liệu vào bảng Bill
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-01', '2023-05-01', 1, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-02', NULL, 2, 0)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-03', '2023-05-03', 3, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-04', NULL, 4, 0)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-05', '2023-05-05', 5, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-06', NULL, 6, 0)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-07', '2023-05-07', 7, 1)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-08', NULL, 8, 0)
-INSERT INTO Bill ([dateCheckIn], [dateCheckOut], [idTable], [status]) VALUES ('2023-05-09', '2023-05-09', 9, 1)
-GO
-
--- Thêm dữ liệu vào bảng BillInfo
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (1, 1, 2)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (1, 3, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (2, 2, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (3, 4, 3)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (4, 5, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (4, 6, 2)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (5, 7, 3)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (5, 8, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (6, 9, 2)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (7, 10, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (9, 1, 1)
-INSERT INTO BillInfo ([idBill], [idFood], [count]) VALUES (9, 2, 1)
-GO

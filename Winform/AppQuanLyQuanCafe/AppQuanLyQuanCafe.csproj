@@ -49,7 +49,7 @@
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
     <Compile Include="DAO\BillInfoDAO.cs" />
-    <Compile Include="DAO\FoodCategoryDAO.cs" />
+    <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="DTO\AccountDTO.cs" />
     <Compile Include="DTO\BillDTO.cs" />
     <Compile Include="DTO\BillInfoDTO.cs" />
-    <Compile Include="DTO\FoodCategoryDTO.cs" />
+    <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\FoodDTO.cs" />
     <Compile Include="DTO\MenuDTO.cs" />
     <Compile Include="DTO\TableDTO.cs" />

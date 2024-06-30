@@ -35,7 +35,7 @@
             this.tsmLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlAddFood = new System.Windows.Forms.Panel();
-            this.cbbFoodCategory = new System.Windows.Forms.ComboBox();
+            this.cbbCategory = new System.Windows.Forms.ComboBox();
             this.cbbFood = new System.Windows.Forms.ComboBox();
             this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
@@ -115,7 +115,7 @@
             // 
             // pnlAddFood
             // 
-            this.pnlAddFood.Controls.Add(this.cbbFoodCategory);
+            this.pnlAddFood.Controls.Add(this.cbbCategory);
             this.pnlAddFood.Controls.Add(this.cbbFood);
             this.pnlAddFood.Controls.Add(this.nudAmount);
             this.pnlAddFood.Controls.Add(this.btnAddFood);
@@ -124,14 +124,14 @@
             this.pnlAddFood.Size = new System.Drawing.Size(330, 60);
             this.pnlAddFood.TabIndex = 2;
             // 
-            // cbbFoodCategory
+            // cbbCategory
             // 
-            this.cbbFoodCategory.FormattingEnabled = true;
-            this.cbbFoodCategory.Location = new System.Drawing.Point(5, 5);
-            this.cbbFoodCategory.Name = "cbbFoodCategory";
-            this.cbbFoodCategory.Size = new System.Drawing.Size(185, 21);
-            this.cbbFoodCategory.TabIndex = 3;
-            this.cbbFoodCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
+            this.cbbCategory.FormattingEnabled = true;
+            this.cbbCategory.Location = new System.Drawing.Point(5, 5);
+            this.cbbCategory.Name = "cbbCategory";
+            this.cbbCategory.Size = new System.Drawing.Size(185, 21);
+            this.cbbCategory.TabIndex = 3;
+            this.cbbCategory.SelectedIndexChanged += new System.EventHandler(this.cbbCategory_SelectedIndexChanged);
             // 
             // cbbFood
             // 
@@ -320,7 +320,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmLogout;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
         private System.Windows.Forms.Panel pnlAddFood;
-        private System.Windows.Forms.ComboBox cbbFoodCategory;
+        private System.Windows.Forms.ComboBox cbbCategory;
         private System.Windows.Forms.ComboBox cbbFood;
         private System.Windows.Forms.NumericUpDown nudAmount;
         private System.Windows.Forms.Button btnAddFood;

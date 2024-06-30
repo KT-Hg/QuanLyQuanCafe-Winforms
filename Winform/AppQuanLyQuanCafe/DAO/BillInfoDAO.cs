@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace AppQuanLyQuanCafe.DAO
 {
@@ -33,9 +34,34 @@ namespace AppQuanLyQuanCafe.DAO
             return billInfoDTOs;
         }
 
-        public void InsertBillInfo(int idBill, int idFood, int count)
+        public bool InsertBillInfo(int idBill, int idFood, int count)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
+            int result = (int)DataProvider.Instance.ExecuteNonQuery("EXEC InsertBillInfo @idBill , @idFood , @count", new object[] { idBill, idFood, count });
+            return result > 0;
+        }
+
+        public bool UpdateBillInfo(int id, int idBill, int? idFood, int count)
+        {
+            string query = "EXEC UpdateBillInfo @id , @idBill , @idFood , @count";
+            int result;
+            if (idFood == null)
+                result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, idBill, DBNull.Value, count });
+            else
+                result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, idBill, idFood, count });
+            return result > 0;
+        }
+
+        public List<BillInfoDTO> GetListBillInfoByIdFood(int idFood)
+        {
+            List<BillInfoDTO> billInfoDTOs = new List<BillInfoDTO>();
+            string query = "EXEC SearchBillInfoByIdFood @idFood";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { idFood });
+            foreach (DataRow row in dataTable.Rows)
+            {
+                BillInfoDTO billInfoDTO = new BillInfoDTO(row);
+                billInfoDTOs.Add(billInfoDTO);
+            }
+            return billInfoDTOs;
         }
     }
 }

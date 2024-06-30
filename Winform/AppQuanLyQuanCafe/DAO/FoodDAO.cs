@@ -50,6 +50,13 @@ namespace AppQuanLyQuanCafe.DAO
             return foodDTO;
         }
 
+        public DataTable GetFoodByName(string name)
+        {
+            string query = "EXEC SearchFoodByName @name";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { name });
+            return dataTable;
+        }
+
         public bool InsertFood(string name, int idCategory, float price)
         {
             string query = "EXEC InsertFood @name , @idCategory , @price";
@@ -59,11 +66,26 @@ namespace AppQuanLyQuanCafe.DAO
 
         public bool DeleteFood(int id) 
         {
+            List<BillInfoDTO> billInfoDTOs = BillInfoDAO.Instance.GetListBillInfoByIdFood(id);
+            foreach (BillInfoDTO billInfoDTO in billInfoDTOs)
+            {
+                BillInfoDAO.Instance.UpdateBillInfo(billInfoDTO.Id, billInfoDTO.IdBill, null, billInfoDTO.Count);
+            }
             string query = "EXEC DeleteFood @id";
             int result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
             return result > 0;
         }
 
-
+        public bool UpdateFood(int id, string name, int? idCategory, float price)
+        {
+            string query = "EXEC UpdateFood @id , @name , @idCategory , @price";
+            int result;
+            if (idCategory == null)
+                result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, DBNull.Value, price });
+            else
+                result = (int)DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, name, idCategory, price });
+            
+            return result > 0;
+        }
     }
 }

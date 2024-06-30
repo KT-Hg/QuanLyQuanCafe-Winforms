@@ -22,7 +22,7 @@ namespace AppQuanLyQuanCafe.DTO
         {
             this.id = (int)dataRow["id"];
             this.name = dataRow["name"].ToString();
-            this.idCategory = (int)dataRow["idCategory"];
+            this.idCategory = dataRow["idCategory"] != DBNull.Value ? (int)dataRow["idCategory"] : 0;
             this.price = (float)Convert.ToDouble(dataRow["price"].ToString());
         }
 

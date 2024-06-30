@@ -40,7 +40,7 @@ namespace AppQuanLyQuanCafe
 
             if (AccountDAO.Instance.Login(username, password)) 
             {
-                frmTableManager frmTableManager = new frmTableManager(AccountDAO.Instance.GetAccountByUserName(username));
+                frmTableManager frmTableManager = new frmTableManager(AccountDAO.Instance.GetAccountByUserNameAbsolute(username));
                 this.Hide();
                 frmTableManager.ShowDialog();
                 this.Show();

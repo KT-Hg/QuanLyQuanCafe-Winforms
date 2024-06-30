@@ -25,7 +25,7 @@ namespace AppQuanLyQuanCafe.DTO
             this.id = (int)dataRow["id"];
             this.dateCheckIn = (DateTime)dataRow["dateCheckIn"];
             this.dateCheckOut = dataRow["dateCheckOut"] != DBNull.Value ? (DateTime?)dataRow["dateCheckOut"] : null;
-            this.idTable = (int)dataRow["idTable"];
+            this.idTable = dataRow["idTable"] != DBNull.Value ? (int)dataRow["idTable"] : 0;
             this.status = (int)dataRow["status"];
             this.discount = (int)dataRow["discount"];
             this.totalPrice = (float)Convert.ToDouble(dataRow["totalPrice"].ToString());

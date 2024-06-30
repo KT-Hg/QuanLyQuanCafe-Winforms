@@ -41,10 +41,10 @@ namespace AppQuanLyQuanCafe
                 return;
             }
             
-            if(AccountDAO.Instance.UpdateAccount(accountDTO, txbDisplayName.Text, txbUserName.Text, txbNewPassWord.Text))
+            if(AccountDAO.Instance.UpdateAccount(accountDTO, txbDisplayName.Text, txbUserName.Text, txbNewPassWord.Text,null))
             {
                 MessageBox.Show("Cập nhật thông tin thành công.", "Thông báo");
-                accountDTO = AccountDAO.Instance.GetAccountByUserName(txbUserName.Text);
+                accountDTO = AccountDAO.Instance.GetAccountByUserNameAbsolute(txbUserName.Text);
             }
             else
             {
